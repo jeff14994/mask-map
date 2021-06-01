@@ -33,7 +33,7 @@ xhr.open('get', 'https://raw.githubusercontent.com/kiang/pharmacies/master/json/
 xhr.send();
 xhr.onload = () => {
   const data = JSON.parse(xhr.responseText).features;
-  console.log(data);
+  // console.log(data);
   for (let i = 0; data.length > i; i += 1) {
     markers.addLayer(
       L.marker([data[i].geometry.coordinates[1], data[i].geometry.coordinates[0]],

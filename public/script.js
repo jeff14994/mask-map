@@ -2,15 +2,15 @@
 // Create a map object
 // Set up the longitude and latitude
 // Set up zoom size
-// var map = L.map('map', {
-//     center: [ 24.144, 120.6844],
-//     zoom: 16
-// });
-// eslint-disable-next-line no-undef
 const map = L.map('map', {
-  center: [22.604799, 120.2976256],
+  center: [24.144, 120.6844],
   zoom: 16,
 });
+// eslint-disable-next-line no-undef
+// const map = L.map('map', {
+//   center: [22.604799, 120.2976256],
+//   zoom: 16,
+// });
 // Set up Layer
 // eslint-disable-next-line no-undef
 L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
@@ -37,7 +37,7 @@ xhr.onload = () => {
   for (let i = 0; data.length > i; i += 1) {
     markers.addLayer(
       L.marker([data[i].geometry.coordinates[1], data[i].geometry.coordinates[0]],
-        { icon: greenIcon }).bindPopup(data[i].properties.name),
+        { icon: greenIcon }).bindPopup(`<h1>${data[i].properties.name}</h1><p>成人口罩：${data[i].properties.mask_adult}個</p><p>兒童口罩：${data[i].properties.mask_child}個</p>`),
     );
     // add more markers here...
     // L.marker().addTo(map)

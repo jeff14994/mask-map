@@ -4,16 +4,17 @@
 // Set up zoom size
 
 // Ask user's location
-const map = L.map('map')
-  .locate({
-    setView: true,
-    maxZoom: 16,
-  });
+// const map = L.map('map')
+//   .locate({
+//     setView: true,
+//     maxZoom: 16,
+//   });
 // eslint-disable-next-line no-undef
-// const map = L.map('map', {
-//   center: [22.604799, 120.2976256],
-//   zoom: 16,
-// });
+const map = L.map('map', {
+  // center: [22.604799, 120.2976256],
+  // center: [23.594194, 120.882568],
+  zoom: '16',
+});
 // Set up Layer
 // eslint-disable-next-line no-undef
 L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
@@ -95,6 +96,7 @@ xhr.onload = () => {
 };
 // const popup = L.popup();
 
+// Pop up 經緯度 -> 使用者點擊底圖的時候
 // function onMapClick(e) {
 //   popup
 //     .setLatLng(e.latlng)
@@ -105,6 +107,7 @@ xhr.onload = () => {
 // }
 // map.on('click', onMapClick);
 
+// Alert 經緯度
 // function onMapClick(e) {
 //   alert("經緯度座標：" + e.latlng);
 // }

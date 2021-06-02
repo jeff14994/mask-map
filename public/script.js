@@ -46,7 +46,29 @@ if (navigator.geolocation) {
     longit = position.coords.longitude;
     // this is just a marker placed in that position
     // Use .openPopup() to open the popup immediately;
-    L.marker([position.coords.latitude, position.coords.longitude], { icon: redIcon }).addTo(map).bindPopup('<h2>Current Location!</h2>').openPopup();
+    const currentLocationMarker = L.marker(
+      [latit, longit],
+      { icon: redIcon },
+    );
+    currentLocationMarker
+      .addTo(map)
+      .bindPopup('<h2>Current Location!</h2>')
+      .openPopup();
+    // Add a circle in the map (to show the distance)
+    const circle = L.circle([latit, longit], {
+      color: 'red',
+      fillColor: '#f03',
+      fillOpacity: 0.5,
+      radius: 500,
+    });
+    circle.addTo(map).bindPopup('<h3>距離約<strong>523.30公尺</strong></h3>');
+    const circleSmall = L.circle([latit, longit], {
+      color: 'green',
+      fillColor: 'green',
+      fillOpacity: 0.5,
+      radius: 200,
+    });
+    circleSmall.addTo(map).bindPopup('<h3><strong>距離約222.66公尺</strong></h3>');
     // move the map to have the location in its center
     map.panTo(new L.LatLng(latit, longit));
   });
@@ -73,21 +95,21 @@ xhr.onload = () => {
 };
 // const popup = L.popup();
 
-function onMapClick(e) {
-  popup
-    .setLatLng(e.latlng)
-    .setContent(`經緯度座標：${e.latlng.toString()}`)
-    .openOn(map);
-    console.log(e.latlng.lat);
-    console.log(e.latlng.lng);
-}
+// function onMapClick(e) {
+//   popup
+//     .setLatLng(e.latlng)
+//     .setContent(`經緯度座標：${e.latlng.toString()}`)
+//     .openOn(map);
+//     console.log(e.latlng.lat);
+//     console.log(e.latlng.lng);
+// }
+// map.on('click', onMapClick);
+
 // function onMapClick(e) {
 //   alert("經緯度座標：" + e.latlng);
 // }
+// map.on('click', onMapClick);
 
-map.on('click', onMapClick);
-
-map.on('click', onMapClick);
 // Get location
 // function geoFindMe() {
 //   const status = document.querySelector('#status');

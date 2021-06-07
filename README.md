@@ -8,7 +8,6 @@ A map to show distances to the nearest pharmacy in your region to purchase masks
 # Try It
 - Deployed in heroku platform
 - Click the image to give it a try:
-
-  [<img src="https://user-images.githubusercontent.com/30124826/121071248-4818b280-c802-11eb-9f8d-f0a96a6bcf24.png">](https://mask-map-tw.herokuapp.com/)
+  [<img src="https://user-images.githubusercontent.com/30124826/121072498-df323a00-c803-11eb-86f4-e6c78cfc85bf.png">](https://mask-map-tw.herokuapp.com/)
 
 
